@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Syne", sans-serif;
+}
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    background-color: #378BA4;
+
+}
+.wrapper {
+    max-width: 1170px;
+    margin: 0 auto;
+    
+}
+.header {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(180deg, #012E4A 10%, #036280 50%, #012E4A 90%);
+    margin-bottom: 40px;
+}
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 340px;
+    padding: 18px;
+    border-radius: 8px;
+    background-color: #81BECE;
+
+}
+.card__img {
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.card__title {
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card__description {
+    font-size: 14px;
+
+    margin-bottom: 20px;
+
+}
+.card__footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.card__price {
+    font-size: 28px;
+    font-weight: 700;
+}
+.card__like {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    fill: #012E4A;
+}
+.card__like-active {
+    fill: #E83100;
+}
+.footer {
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(180deg, #012E4A 10%, #036280 50%, #012E4A 90%);
+}
