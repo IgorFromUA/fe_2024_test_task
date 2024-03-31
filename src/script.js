@@ -55,9 +55,19 @@ function addEventListering() {
 
 function init() {
     loadingSwitch(true);
-    getData.then(response => response.json())
+    getData
+        .then(response => {
+            if (response.status < 200 || response.status >= 300) {
+                throw new Error(response.status);
+            } else {
+                return response.json();
+            }
+        })
         .then(data => createCard(data))
         .then(() => addEventListering())
+        .catch(error => {
+            CARDS_ELEMENT.insertAdjacentText('afterbegin', `Sory ${error}`)
+        })
         .finally(() => loadingSwitch(false));
 }
 
