@@ -4,6 +4,7 @@
     padding: 0;
     font-family: "Syne", sans-serif;
 }
+
 .body {
     display: flex;
     flex-direction: column;
@@ -12,17 +13,20 @@
     background-color: #378BA4;
 
 }
+
 .wrapper {
     max-width: 1170px;
     margin: 0 auto;
-    
+
 }
+
 .header {
     width: 100%;
     height: 80px;
     background: linear-gradient(180deg, #012E4A 10%, #036280 50%, #012E4A 90%);
     margin-bottom: 40px;
 }
+
 .cards {
     display: flex;
     justify-content: center;
@@ -30,6 +34,7 @@
     gap: 40px;
     margin-bottom: 40px;
 }
+
 .card {
     display: flex;
     flex-direction: column;
@@ -40,6 +45,7 @@
     background-color: #81BECE;
 
 }
+
 .card__img {
     border-radius: 8px;
     margin-bottom: 20px;
@@ -51,35 +57,67 @@
     text-align: center;
     margin-bottom: 20px;
     white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 .card__description {
     font-size: 14px;
 
     margin-bottom: 20px;
 
 }
+
 .card__footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
+
 .card__price {
     font-size: 28px;
     font-weight: 700;
 }
+
 .card__like {
     width: 32px;
     height: 32px;
     cursor: pointer;
     fill: #012E4A;
 }
+
 .card__like-active {
     fill: #E83100;
 }
+
 .footer {
     width: 100%;
     height: 120px;
     background: linear-gradient(180deg, #012E4A 10%, #036280 50%, #012E4A 90%);
+}
+
+.loading {
+    width: 100%;
+    text-align: center;
+}
+
+.loading__spin {
+    display: inline-block;
+    position: relative;
+    top: 50px;
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgba(255, 255, 255, .3);
+    border-radius: 50%;
+    border-top-color: #012E4A;
+    border-bottom-color: #012E4A;
+    animation: spin 1s ease-in-out infinite;
+    visibility: hidden;
+}
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
 }

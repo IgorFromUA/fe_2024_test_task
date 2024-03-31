@@ -8,12 +8,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="src/styles.css">
-    <title>Document</title>
+    <title>Products</title>
 </head>
 
 <body class="body">
     <header class="header"></header>
     <main class="cards wrapper" data-cards>
+        <div class="loading">
+            <div class="loading__spin" data-loading></div>
+        </div>
         <template data-card-template>
             <section class="card" data-card id="#">
                 <img class="card__img" src=" https://placehold.co/300x300" data-card-img width="300px" height="300px">
@@ -22,9 +25,12 @@
                 <div class="card__footer">
                     <span class="card__price" data-card-price>price</span>
                     <div data-card-like name="#">
-                        <svg class="card__like" data-card-like-svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z"/></svg>
+                        <svg class="card__like" data-card-like-svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z" />
+                        </svg>
                     </div>
-                    
                 </div>
             </section>
         </template>

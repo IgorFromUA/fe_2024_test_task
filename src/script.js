@@ -10,7 +10,12 @@ const CARD_LIKE_ACTIVE_ELEMENT = CARD_TEMPLATE.content.querySelector('[data-card
 
 const getData = fetch('https://api.escuelajs.co/api/v1/products');
 
-function createCard (data) {
+function loadingSwitch(switching) {
+    const LOADING_ELEMENT = document.querySelector('[data-loading]');
+    LOADING_ELEMENT.style.visibility = switching ? 'visible' : 'hidden';
+}
+
+function createCard(data) {
     data.forEach(element => {
         CARD_IMG_ELEMENT.src = element.images[0] && "https://placehold.co/300x300";
         CARD_ELEMENT.id = element.id;
@@ -24,32 +29,36 @@ function createCard (data) {
             CARD_LIKE_ACTIVE_ELEMENT.classList.remove('card__like-active');
         }
         CARDS_ELEMENT.append(CARD_TEMPLATE.content.cloneNode(true));
-})}
+    })
+}
 
 function handleClick(event) {
     const cardSection = event.target.closest('[data-card]');
     const cardId = cardSection.getAttribute('id');
-  
     const svgElement = cardSection.querySelector('svg');
-
     if (svgElement.classList.contains('card__like-active')) {
-      svgElement.classList.remove('card__like-active');
+        svgElement.classList.remove('card__like-active');
     } else {
-      svgElement.classList.add('card__like-active');
+        svgElement.classList.add('card__like-active');
     }
     if (localStorage.getItem(cardId)) {
         localStorage.removeItem(cardId)
     } else {
         localStorage.setItem(cardId, cardId)
     }
-  }
+}
 
-function addEventListering () {
+function addEventListering() {
     const likesBtn = document.querySelectorAll('[data-card-like]');
     likesBtn.forEach((element) => element.addEventListener('click', handleClick))
 }
 
-getData.then(response => response.json())
-    .then(data => createCard(data))
-    .then(() => addEventListering())
+function init() {
+    loadingSwitch(true);
+    getData.then(response => response.json())
+        .then(data => createCard(data))
+        .then(() => addEventListering())
+        .finally(() => loadingSwitch(false));
+}
 
+init();
